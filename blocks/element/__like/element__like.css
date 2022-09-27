@@ -1,0 +1,17 @@
+.element__like {
+  border: none;
+  background: url(../../../images/Vector3.svg) center no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+  height: 19px;
+  width: 22px;
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  transition: 0.3s;
+  color: #000;
+}
+
+.element__like:hover {
+  transform: scale(1.3);
+}
