@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
   <link rel="stylesheet" href="./pages/index.css">
-  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body class="root">
@@ -21,9 +20,9 @@
       <div class="profile__info">
         <h1 class="profile__title">Жак-Ив Кусто</h1>
         <p class="profile__text">Исследователь океана</p>
-        <img src="./images/Vector.png" class="profile__edit-button">
+        <img src="./images/Vector.png" alt="Кнопка изменить" class="profile__edit-button profile__open-popup">
       </div>
-      <img src="./images/Vector2.png" class="profile__add-button">
+      <img src="./images/Vector2.png" alt="Кнопка добавить" class="profile__add-button">
     </section>
     <section class="elements">
       <div class="element">
@@ -43,7 +42,7 @@
       </div>
       <div class="element">
         <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
-        <h2 class="element__title">Гора Эльбрус</h2>
+        <h2 class="element__title">Гора Эльбруc</h2>
         <button class="element__like"></button>
       </div>
       <div class="element">
@@ -53,7 +52,7 @@
       </div>
       <div class="element">
         <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок на горе" class="element__image">
-        <h2 class="element__title">Карачаевск</h2>
+        <h2 class="element__title">Карачаево-Черкесия</h2>
         <button class="element__like"></button>
       </div>
     </section>
@@ -61,6 +60,20 @@
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
+
+  <section class="popup">
+    <div class="popup__container">
+      <img src="./images/Close-Icon.png" alt="Кнопка для закрытия" class="popup__close">
+      <form class="popup__form form">
+        <h2 class="form__heading">Редактировать профиль</h2>
+        <input type="text" class="form__item form__item_heading" id="heading" name="heading" placeholder="имя" required>
+        <input type="text" class="form__item form__item_subheading" id="subheading" name="subheading"
+          placeholder="о себе" required>
+        <button class="form__submit-button">Сохранить</button>
+      </form>
+    </div>
+  </section>
+  <script src="./js/core.js"></script>
 </body>
 
 </html>

@@ -6,9 +6,3 @@
   position: relative;
   box-sizing: border-box;
 }
-
-@media screen and (max-width: 940px) {
-  .element {
-    
-  }
-}
