@@ -4,5 +4,8 @@
   background: #ffffff;
   border-radius: 10px;
   position: relative;
-  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: 282px min-content;
+  row-gap: 30px;
 }

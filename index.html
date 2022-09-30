@@ -11,7 +11,7 @@
 
 <body class="root">
   <header class="header">
-    <img src="./images/header-logo.png" alt="место Russia" class="header__logo">
+    <img src="./images/header-logo.svg" alt="место Russia" class="header__logo">
     <div class="header__line"></div>
   </header>
   <main class="content">
@@ -20,15 +20,15 @@
       <div class="profile__info">
         <h1 class="profile__title">Жак-Ив Кусто</h1>
         <p class="profile__text">Исследователь океана</p>
-        <img src="./images/Vector.png" alt="Кнопка изменить" class="profile__edit-button profile__open-popup">
+        <button class="profile__edit-button profile__edit-button_action_open" type="button" aria-label="Открыть редактирование"></button>
       </div>
-      <img src="./images/Vector2.png" alt="Кнопка добавить" class="profile__add-button">
+      <button class="profile__add-button profile__add-button_action_add" type="button" aria-label="Кнопка Добавить"></button>
     </section>
     <section class="elements">
       <div class="element">
         <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок на горе" class="element__image">
         <h2 class="element__title">Карачаевск</h2>
-        <button class="element__like"></button>
+        <button class="element__like" type="button"></button>
       </div>
       <div class="element">
         <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
@@ -63,17 +63,17 @@
 
   <section class="popup">
     <div class="popup__container">
-      <img src="./images/Close-Icon.png" alt="Кнопка для закрытия" class="popup__close">
-      <form class="popup__form form">
+      <button class="popup__close" type="button" aria-label="Кнопка для закрытия"></button>
+      <form class="popup__form form" name="form">
         <h2 class="form__heading">Редактировать профиль</h2>
-        <input type="text" class="form__item form__item_heading" id="heading" name="heading" placeholder="имя" required>
-        <input type="text" class="form__item form__item_subheading" id="subheading" name="subheading"
+        <input type="text" class="form__item form__item_el_heading" id="heading" name="heading" placeholder="имя" required>
+        <input type="text" class="form__item form__item_el_subheading" id="subheading" name="subheading"
           placeholder="о себе" required>
-        <button class="form__submit-button">Сохранить</button>
+        <button class="form__submit-button" type="submit" aria-label="Кнопка Сохранить">Сохранить</button>
       </form>
     </div>
   </section>
-  <script src="./js/core.js"></script>
+  <script src="./scripts/index.js" defer></script>
 </body>
 
 </html>

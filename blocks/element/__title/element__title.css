@@ -5,9 +5,11 @@
   line-height: 29px;
   color: #000000;
   margin: 0;
-  padding: 25px 0 0 21px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   max-width: 190px;
+  grid-column: 1/2;
+  grid-row: 2/2;
+  padding-left: 21px;
 }

@@ -3,3 +3,9 @@
   flex-direction: column;
   padding: 34px 0 37px 0;
 }
+
+@media screen and (max-width: 500px) {
+  .form {
+    padding: 25px 0;
+  }
+}

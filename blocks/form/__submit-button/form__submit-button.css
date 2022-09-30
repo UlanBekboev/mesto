@@ -1,5 +1,6 @@
 .form__submit-button {
-  max-width: 358px;
+  width: 358px;
+  height: 50px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -7,9 +8,11 @@
   text-align: center;
   color: #ffffff;
   background-color: #000;
-  padding: 16px 124px;
+  padding: 0;
   margin-top: 48px;
   transition: 0.3s;
+  border: 0;
+  border-radius: 2px;
 }
 
 .form__submit-button:hover {
@@ -21,6 +24,6 @@
     max-width: 238px;
     font-size: 14px;
     line-height: 17px;
-    padding: 14px 82px;
+    margin-top: 45px;
   }
 }
