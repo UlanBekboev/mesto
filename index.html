@@ -20,40 +20,54 @@
       <div class="profile__info">
         <h1 class="profile__title">Жак-Ив Кусто</h1>
         <p class="profile__text">Исследователь океана</p>
-        <button class="profile__edit-button profile__edit-button_action_open" type="button" aria-label="Открыть редактирование"></button>
+        <button class="profile__edit-button profile__edit-button_action_open" type="button"
+          aria-label="Открыть редактирование"></button>
       </div>
-      <button class="profile__add-button profile__add-button_action_add" type="button" aria-label="Кнопка Добавить"></button>
+      <button class="profile__add-button profile__add-button_action_add" type="button"
+        aria-label="Кнопка Добавить"></button>
     </section>
     <section class="elements">
       <div class="element">
         <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок на горе" class="element__image">
-        <h2 class="element__title">Карачаевск</h2>
-        <button class="element__like" type="button"></button>
+        <div class="element__flex-row">
+          <h2 class="element__title">Карачаевск</h2>
+          <button class="element__like" type="button"></button>
+        </div>
       </div>
       <div class="element">
         <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
-        <h2 class="element__title">Гора Эльбрус</h2>
-        <button class="element__like"></button>
+        <div class="element__flex-row">
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <button class="element__like"></button>
+        </div>
       </div>
       <div class="element">
         <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы в Домбае" class="element__image">
-        <h2 class="element__title">Домбай</h2>
-        <button class="element__like"></button>
+        <div class="element__flex-row">
+          <h2 class="element__title">Домбай</h2>
+          <button class="element__like"></button>
+        </div>
       </div>
       <div class="element">
         <img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус" class="element__image">
-        <h2 class="element__title">Гора Эльбруc</h2>
-        <button class="element__like"></button>
+        <div class="element__flex-row">
+          <h2 class="element__title">Гора Эльбруc</h2>
+          <button class="element__like"></button>
+        </div>
       </div>
       <div class="element">
         <img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Горы в Домбае" class="element__image">
-        <h2 class="element__title">Домбай</h2>
-        <button class="element__like"></button>
+        <div class="element__flex-row">
+          <h2 class="element__title">Домбай</h2>
+          <button class="element__like"></button>
+        </div>
       </div>
       <div class="element">
         <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок на горе" class="element__image">
-        <h2 class="element__title">Карачаево-Черкесия</h2>
-        <button class="element__like"></button>
+        <div class="element__flex-row">
+          <h2 class="element__title">Карачаево-Черкесия</h2>
+          <button class="element__like"></button>
+        </div>
       </div>
     </section>
   </main>
@@ -64,9 +78,10 @@
   <section class="popup">
     <div class="popup__container">
       <button class="popup__close" type="button" aria-label="Кнопка для закрытия"></button>
-      <form class="popup__form form" name="form">
+      <form class="popup__form form" name="edit-form">
         <h2 class="form__heading">Редактировать профиль</h2>
-        <input type="text" class="form__item form__item_el_heading" id="heading" name="heading" placeholder="имя" required>
+        <input type="text" class="form__item form__item_el_heading" id="heading" name="heading" placeholder="имя"
+          required>
         <input type="text" class="form__item form__item_el_subheading" id="subheading" name="subheading"
           placeholder="о себе" required>
         <button class="form__submit-button" type="submit" aria-label="Кнопка Сохранить">Сохранить</button>

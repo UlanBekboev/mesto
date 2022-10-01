@@ -9,7 +9,4 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 190px;
-  grid-column: 1/2;
-  grid-row: 2/2;
-  padding-left: 21px;
 }

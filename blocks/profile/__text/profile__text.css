@@ -21,3 +21,10 @@
     max-width: 282px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .profile__text {
+    grid-column: 1/4;
+    grid-row: 2/2;
+  }
+}
