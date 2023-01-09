@@ -26,6 +26,9 @@
       <button class="profile__add-button profile__add-button_action_add" type="button"
         aria-label="Кнопка Добавить"></button>
     </section>
+    <section class="popup">
+
+    </section>
     <section class="elements">
       <div class="element">
         <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок на горе" class="element__image">
@@ -75,7 +78,7 @@
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
 
-  <section class="popup">
+  <template id="popup-template">
     <div class="popup__container">
       <button class="popup__close" type="button" aria-label="Кнопка для закрытия"></button>
       <form class="popup__form form" name="edit-form">
@@ -87,8 +90,24 @@
         <button class="form__submit-button" type="submit" aria-label="Кнопка Сохранить">Сохранить</button>
       </form>
     </div>
+  </template>
+
+  <!--<section class="popup popup_add-place">
+    <div class="popup__container">
+      <button class="popup__close" type="button" aria-label="Кнопка для закрытия"></button>
+      <form class="popup__form form" name="edit-form">
+        <h2 class="form__heading">Новое место</h2>
+        <input type="text" class="form__item form__item_el_heading" id="heading" name="heading" placeholder="Название"
+          required>
+        <input type="text" class="form__item form__item_el_subheading" id="subheading" name="subheading"
+          placeholder="Ссылка на картинку" required>
+        <button class="form__submit-button" type="submit" aria-label="Кнопка Сохранить">Создать</button>
+      </form>
+    </div>
   </section>
-  <script src="./scripts/index.js" defer></script>
+-->
+
+  <script src="./scripts/core.js"></script>
 </body>
 
 </html>
