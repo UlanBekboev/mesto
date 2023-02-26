@@ -1,9 +1,5 @@
-const profileOpenButton = document.querySelector(
-  ".profile__edit-button_action_open"
-);
-const profileAddButton = document.querySelector(
-  ".profile__add-button_action_add"
-);
+const profileOpenButton = document.querySelector(".profile__edit-button_action_open");
+const profileAddButton = document.querySelector(".profile__add-button_action_add");
 const popup = document.querySelector(".popup");
 const popupCloseButton = document.querySelector(".popup__close");
 const Name = document.querySelector(".profile__title");
@@ -11,38 +7,27 @@ const job = document.querySelector(".profile__text");
 
 function addForm() {
   const popupTemplate = document.querySelector("#popup-template").content;
-  const popupElement = popupTemplate
-    .querySelector(".popup__container")
-    .cloneNode(true);
+  const popupElement = popupTemplate.querySelector(".popup__container").cloneNode(true);
   popupElement.querySelector(".form__item_el_heading").value = Name.textContent;
-  popupElement.querySelector(".form__item_el_subheading").value =
-    job.textContent;
-  popupElement
-    .querySelector(".form")
-    .addEventListener("submit", function (evt) {
-      evt.preventDefault();
-      Name.textContent = popupElement.querySelector(
-        ".form__item_el_heading"
-      ).value;
-      job.textContent = popupElement.querySelector(
-        ".form__item_el_subheading"
-      ).value;
-      popup.classList.remove("popup_opened");
-      popupElement.remove();
-    });
-  popupElement
-    .querySelector(".popup__close")
-    .addEventListener("click", function () {
-      popup.classList.remove("popup_opened");
-      popupElement.remove();
-    });
+  popupElement.querySelector(".form__item_el_subheading").value = job.textContent;
+  popupElement.querySelector(".form").addEventListener("submit", function (evt) {
+    evt.preventDefault();
+    Name.textContent = popupElement.querySelector(".form__item_el_heading").value;
+    job.textContent = popupElement.querySelector(".form__item_el_subheading").value;
+    popup.classList.remove("popup_opened");
+    popupElement.remove();
+  });
+  popupElement.querySelector(".popup__close").addEventListener("click", function () {
+    popup.classList.remove("popup_opened");
+    popupElement.remove();
+  });
   popup.append(popupElement);
 }
 
 let openAddFormPopup = function (event) {
   popup.classList.add("popup_opened");
   addForm();
-};
+}
 
 profileOpenButton.addEventListener("click", openAddFormPopup);
 
@@ -77,9 +62,7 @@ const container = document.querySelector(".elements");
 
 function addPlace() {
   const cardTemplate = document.querySelector("#popup-template").content;
-  let cardElement = cardTemplate
-    .querySelector(".popup__container")
-    .cloneNode(true);
+  let cardElement = cardTemplate.querySelector(".popup__container").cloneNode(true);
   cardElement.querySelector(".form__heading").textContent = "Новое место";
   cardElement.querySelector(".form__item_el_heading").placeholder = "Название";
   cardElement.querySelector(".form__item_el_subheading").placeholder = "Ссылка на картинку";
