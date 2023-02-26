@@ -1,0 +1,14 @@
+.popup__figcaption {
+  max-width: 291px;
+  max-height: 12px;
+  text-align: start;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #fff;
+  margin: 0;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+}

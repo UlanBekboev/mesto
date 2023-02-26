@@ -4,3 +4,10 @@
   aspect-ratio: 1 / 1;
   border-radius: 10px 10px 0 0;
 }
+
+.element__image_active {
+  max-width: 75vw;
+  max-height: 75vh;
+  z-index: 3
+}
+

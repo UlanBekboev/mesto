@@ -1,0 +1,11 @@
+.element__trash {
+  width: 18px;
+  height: 19px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.element__trash:hover {
+  opacity: 0.5;
+}
