@@ -1,8 +1,8 @@
 .popup__image-container {
-  width: 63.75%;
-  height: 75%;
-  background: #ffffff;
+  width: 63.75vw;
+  height: 75vh;
   position: relative;
+  display: flex;
 }
 
 @media screen and (max-width: 500px) {

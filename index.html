@@ -26,9 +26,6 @@
       <button class="profile__add-button profile__add-button_action_add" type="button"
         aria-label="Кнопка Добавить"></button>
     </section>
-    <section class="popup">
-
-    </section>
     <section class="elements">
       <div class="element">
         <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Замок на горе" class="element__image">
@@ -84,7 +81,7 @@
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
 
-  <template id="popup-template">
+  <div class="popup popup_type_edit">
     <div class="popup__container">
       <button class="popup__close" type="button" aria-label="Кнопка для закрытия"></button>
       <form class="popup__form form" name="edit-form">
@@ -96,8 +93,44 @@
         <button class="form__submit-button" type="submit" aria-label="Кнопка Сохранить">Сохранить</button>
       </form>
     </div>
+  </div>
+
+  <div class="popup popup_type_place">
+    <div class="popup__container">
+      <button class="popup__close" type="button" aria-label="Кнопка для закрытия"></button>
+      <form class="popup__form form" name="edit-form">
+        <h2 class="form__heading">Новое место</h2>
+        <input type="text" class="form__item form__item_el_heading" id="heading" name="heading" placeholder="Название"
+          required>
+        <input type="text" class="form__item form__item_el_subheading" id="subheading" name="subheading"
+          placeholder="Ссылка на картинку" required>
+        <button class="form__submit-button" type="submit" aria-label="Кнопка Сохранить">Создать</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_type_photo">
+    <div class="popup__image-container">
+      <button type="button" class="popup__close"></button>
+      <figure class="popup__image-opened">
+        <img class="popup__image">
+        <figcaption class="popup__caption"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+
+  <template id="card-template">
+    <div class="element">
+      <img src=# alt=# class="element__image">
+      <img src="./images/Trash.svg" alt="корзина" class="element__trash">
+      <div class="element__flex-row">
+        <h2 class="element__title"></h2>
+        <button class="element__like" type="button"></button>
+      </div>
+    </div>
   </template>
-  
+
   <script src="./scripts/core.js"></script>
 </body>
 
