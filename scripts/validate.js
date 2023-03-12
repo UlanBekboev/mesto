@@ -1,22 +1,24 @@
-const showInputError = (formError, errorMessage, inputErrorClass) => {
+const showInputError = (formError, errorMessage, inputErrorClass, inputElement) => {
 	formError.textContent = errorMessage;
 	formError.classList.add(inputErrorClass);
+  inputElement.classList.add('form__input_type_error');
 };
 
-const hideInputError = (formError, inputErrorClass) => {
+const hideInputError = (formError, inputErrorClass, inputElement) => {
 	formError.textContent = '';
 	formError.classList.remove(inputErrorClass);
+  inputElement.classList.remove('form__input_type_error');
 };
 
-
 const setInputState = (inputElement, isValid, options) => {
-	const { inputSectionSelector, inputErrorSelector, inputErrorClass } = options;
+	const { inputSectionSelector, inputErrorClass } = options;
 	const inputSectionElement = inputElement.closest(inputSectionSelector);
-	const errorElement = inputSectionElement.querySelector(inputErrorSelector);
+  const errorElement = inputSectionElement.querySelector(`.${inputElement.id}-error`); 
+
 	if (isValid) {
-		hideInputError(errorElement, inputErrorClass);
+		hideInputError(errorElement, inputErrorClass, inputElement);
 	} else {
-		showInputError(errorElement, inputElement.validationMessage, inputErrorClass);
+		showInputError(errorElement, inputElement.validationMessage, inputErrorClass, inputElement);
 	}
 };
 
@@ -24,6 +26,7 @@ const toggleInputState = (inputElement, options) => {
 	const isValid = inputElement.validity.valid;
 	setInputState(inputElement, isValid, options);
 };
+
 
 const enableButton = (buttonElement, disabledButtonClass) => {
 	buttonElement.removeAttribute('disabled');
@@ -34,6 +37,8 @@ const disableButton = (buttonElement, disabledButtonClass) => {
 	buttonElement.setAttribute('disabled', true);
 	buttonElement.classList.add(disabledButtonClass);
 };
+
+
 
 const toggleButtonState = (inputs, submitElement, disabledButtonClass) => {
 	const formIsValid = inputs.every(inputElement => inputElement.validity.valid);
@@ -69,7 +74,7 @@ const enableValidation = ({
 	disabledButtonClass,
 }) => {
 	const forms = Array.from(document.querySelectorAll(formSelector));
-	forms.forEach(form => {
+	forms.forEach((form) => {
 		setEventListeners(form, {
 			submitSelector,
 			inputSelector,
@@ -80,3 +85,5 @@ const enableValidation = ({
 		});
 	});
 };
+
+

@@ -12,5 +12,18 @@
   line-height: 17px;
   color: #000000;
   display: block;
+  outline: none;
 }
  
+input::placeholder {
+  opacity: 0.5;
+}
+
+input:valid {
+  opacity: 1;
+}
+
+
+
+
+
