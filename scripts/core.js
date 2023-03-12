@@ -80,8 +80,8 @@ const imagePopup = document.querySelector(".popup__image");
 const profileName = document.querySelector(".profile__title");
 const profileJob = document.querySelector(".profile__text");
 const profilePopup = document.querySelector(".popup_type_edit");
-const nameInput = profilePopup.querySelector(".form__item_el_heading");
-const jobInput = profilePopup.querySelector(".form__item_el_subheading");
+const nameInput = profilePopup.querySelector(".form__input_el_heading");
+const jobInput = profilePopup.querySelector(".form__input_el_subheading");
 const profileForm = profilePopup.querySelector(".form");
 
 function addForm() {
@@ -117,8 +117,8 @@ closeButtons.forEach((button) => {
 const profileAddButton = document.querySelector(".profile__add-button_action_add");
 const addPlacePopup = document.querySelector('.popup_type_place');
 const placeForm = addPlacePopup.querySelector('.form');
-const placeNameInput = addPlacePopup.querySelector('.form__item_el_heading');
-const placeLinkInput = addPlacePopup.querySelector('.form__item_el_subheading');
+const placeNameInput = addPlacePopup.querySelector('.form__input_el_heading');
+const placeLinkInput = addPlacePopup.querySelector('.form__input_el_subheading');
 
 profileAddButton.addEventListener("click", () => openPopup(addPlacePopup));
 
@@ -134,10 +134,17 @@ function handlePlaceFormSubmit(evt) {
 placeForm.addEventListener("submit", handlePlaceFormSubmit);
 
 
+const validationOptions = {
+  formSelector: '.form',
+  submitSelector: '.form__submit-button',
+  inputSelector: '.form__input',
+  inputSectionSelector: '.form__set',
+  inputErrorSelector: '.form__input-error',
+  inputErrorClass: 'form__input-error_active',
+  disabledButtonClass: 'form__submit-button_inactive',
+};
 
-
-
-
+enableValidation(validationOptions);
 
 
 
