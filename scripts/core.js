@@ -172,7 +172,7 @@ enableValidation(validationOptions);
 const popups = document.querySelectorAll('.popup');
   popups.forEach((popup) => {
     popup.addEventListener('click', (evt) => {
-      if (!evt.target.classList.contains('.popup__container')) {
+      if (evt.target === evt.currentTarget) {
         closePopup(popup);
       };
     });
