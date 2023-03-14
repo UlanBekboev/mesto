@@ -54,20 +54,17 @@ const setEventListeners = (form, options) => {
 	const submitElement = form.querySelector(options.submitSelector);
 	const inputs = Array.from(form.querySelectorAll(options.inputSelector));
   toggleButtonState(inputs, submitElement, options.disabledButtonClass);
-
-  form.addEventListener('reset', () => {
+    form.addEventListener('reset', () => {
       disableButton(submitElement, options.disabledButtonClass);
-  });
+    });
   
 	inputs.forEach(inputElement => {
 		inputElement.addEventListener('input', () => {
 			toggleInputState(inputElement, options);
 			toggleButtonState(inputs, submitElement, options.disabledButtonClass);
 		});
-	});
-	
+	});	
 };
-
 
 const enableValidation = ({
 	formSelector,
