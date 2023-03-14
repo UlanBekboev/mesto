@@ -88,6 +88,7 @@ function openProfileForm() {
   const submitElement = profileForm.querySelector(validationOptions.submitSelector);
 	const inputs = Array.from(profileForm.querySelectorAll(validationOptions.inputSelector));
   toggleButtonState(inputs, submitElement, validationOptions.disabledButtonClass);
+  removeErrors(profilePopup);
 }
 
 function openPopup(popup) {
@@ -96,9 +97,9 @@ function openPopup(popup) {
 }
 
 function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  removeErrors(popup);
+  popup.classList.remove('popup_opened'); 
 }
+
 
 function closeByEsc(evt) {
   if (evt.key === 'Escape') {
@@ -140,10 +141,12 @@ const addPlacePopup = document.querySelector('.popup_type_place');
 const placeForm = document.forms["place-form"];
 const placeNameInput = addPlacePopup.querySelector('.form__input_el_heading');
 const placeLinkInput = addPlacePopup.querySelector('.form__input_el_subheading');
+
 profileAddPlaceButton.addEventListener("click", () => {
   openPopup(addPlacePopup);
   const form = addPlacePopup.querySelector('.form');
   form.reset();
+  removeErrors(addPlacePopup);
 });
 
 function handlePlaceFormSubmit(evt) {
