@@ -43,7 +43,12 @@ function createCard(name, link) {
   cardImage.alt = `Картина: местность ${name}`;
 
   
-  cardImage.addEventListener("click", openPhoto);
+  cardImage.addEventListener("click", () => {
+    cardImagePopup.src = cardImage.src;
+    cardImagePopup.alt = cardImage.alt;
+    cardTitlePopup.textContent = cardTitle.textContent;
+    openPopup(photoPopup);
+  });
   
   deleteButton.addEventListener("click", (e) => {
     e.target.closest(".element").remove();
@@ -54,15 +59,6 @@ function createCard(name, link) {
     }); 
 
   return cardElement;
-}
-
-function openPhoto(e) {
-  const cardImage = e.target;
-  const cardTitle = cardImage.closest(".element").querySelector(".element__title");
-  cardImagePopup.src = cardImage.src;
-  cardImagePopup.alt = cardImage.alt;
-  cardTitlePopup.textContent = cardTitle.textContent;
-  openPopup(photoPopup);
 }
 
 function renderCard(name, link) {
@@ -82,7 +78,7 @@ const profileJob = document.querySelector(".profile__text");
 const profilePopup = document.querySelector(".popup_type_edit");
 const nameInput = profilePopup.querySelector(".form__input_el_heading");
 const jobInput = profilePopup.querySelector(".form__input_el_subheading");
-const profileForm = profilePopup.querySelector(".form");
+const profileForm = document.forms["profile-form"];
 
 
 function openProfileForm() {
@@ -141,10 +137,9 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 const profileAddPlaceButton = document.querySelector(".profile__add-button_action_add");
 const addPlacePopup = document.querySelector('.popup_type_place');
-const placeForm = addPlacePopup.querySelector('.form');
+const placeForm = document.forms["place-form"];
 const placeNameInput = addPlacePopup.querySelector('.form__input_el_heading');
 const placeLinkInput = addPlacePopup.querySelector('.form__input_el_subheading');
-
 profileAddPlaceButton.addEventListener("click", () => {
   openPopup(addPlacePopup);
   const form = addPlacePopup.querySelector('.form');
