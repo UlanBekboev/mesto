@@ -139,7 +139,6 @@ const placeLinkInput = addPlacePopup.querySelector('.form__input_el_subheading')
 
 profileAddPlaceButton.addEventListener("click", () => {
   openPopup(addPlacePopup);
-  removeErrors(addPlacePopup);
 });
 
 function handlePlaceFormSubmit(evt) {
