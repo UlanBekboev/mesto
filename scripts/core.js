@@ -98,6 +98,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened'); 
+  document.removeEventListener('keydown', closeByEsc);
 }
 
 
@@ -105,7 +106,6 @@ function closeByEsc(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
-    document.removeEventListener('keydown', closeByEsc);
   };
 }
 
@@ -117,12 +117,7 @@ const popups = document.querySelectorAll('.popup');
       }
       if (evt.target.classList.contains('popup__close')) {
         closePopup(popup);
-      }
-      popup.addEventListener('click', (evt) => {
-        if (evt.target === evt.currentTarget) {
-          closePopup(popup);
-        }; 
-      }); 
+      } 
     });
   });
 
@@ -144,8 +139,6 @@ const placeLinkInput = addPlacePopup.querySelector('.form__input_el_subheading')
 
 profileAddPlaceButton.addEventListener("click", () => {
   openPopup(addPlacePopup);
-  const form = addPlacePopup.querySelector('.form');
-  form.reset();
   removeErrors(addPlacePopup);
 });
 
