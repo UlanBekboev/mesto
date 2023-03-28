@@ -4,10 +4,17 @@
   max-height: 562px;
   position: relative;
   display: flex;
-  bottom: 11px;
+  align-items: center;
+  bottom: -12px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 930px) {
+  .popup__image-container {
+    max-width: 550px;
+  }
+}
+
+@media screen and (max-width: 580px) {
   .popup__image-container {
     max-width: 240px;
     max-height: 299px;
