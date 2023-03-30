@@ -1,4 +1,7 @@
-
+const cardImagePopup = document.querySelector(".popup__image");
+const cardTitlePopup = document.querySelector(".popup__caption");
+const photoPopup = document.querySelector('.popup_type_photo');
+import openPopup from "./index.js";
 export default class Card {
   constructor(data, templateSelector) {
     this._image = data.link;
@@ -36,7 +39,14 @@ export default class Card {
     cardTitle.textContent = name;
     cardImage.src = link;
     cardImage.alt = `Картина: местность ${name}`;
+
+    cardImage.addEventListener('click', () => {
+      cardImagePopup.src = cardImage.src;
+      cardImagePopup.alt = cardImage.alt;
+      cardTitlePopup.textContent = cardTitle.textContent;
+      openPopup(photoPopup); 
+    });
   
     return this._element;
-  }  
+  };  
 }

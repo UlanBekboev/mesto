@@ -25,7 +25,7 @@ const initialCards = [
   },
 ];
 
-import FormValidator from './validate.js';
+import FormValidator from './formValidator.js';
 import Card from './card.js';
 
 const profileEditButton = document.querySelector('.profile__edit-button_action_open');
@@ -35,9 +35,10 @@ const profilePopup = document.querySelector(".popup_type_edit");
 const nameInput = profilePopup.querySelector(".form__input_el_heading");
 const jobInput = profilePopup.querySelector(".form__input_el_subheading");
 const profileForm = document.forms["profile-form"];
-const cardImagePopup = document.querySelector(".popup__image");
-const cardTitlePopup = document.querySelector(".popup__caption");
-const photoPopup = document.querySelector('.popup_type_photo');
+const placeForm = document.forms["place-form"];
+const container = document.querySelector('.elements');
+const inputs = document.querySelectorAll('.form__input');
+const profileInput = profileForm.querySelector('.form__input');
 
 const validationOptions = {
   formSelector: '.form',
@@ -50,37 +51,28 @@ const validationOptions = {
   disabledButtonClass: 'form__submit-button_inactive',
 };
 
-const formValidator = new FormValidator(validationOptions);
-formValidator.enableValidation();
-const card = new Card(initialCards, '#card-template');
-
 initialCards.forEach((data) => {
   const card = new Card(data, '#card-template');
   const cardElement = card.renderCard(data.name, data.link);
-  document.querySelector('.elements').prepend(cardElement);
+  container.prepend(cardElement);
 });
 
-const imgs = document.querySelectorAll('.element__image'); 
-  imgs.forEach((img) => {
-    img.addEventListener('click', () => {
-      cardImagePopup.src = img.src;
-      cardImagePopup.alt = img.alt;
-      cardTitlePopup.textContent = img.closest('.element').querySelector('.element__title').textContent;
-      openPopup(photoPopup); 
-    });
-  });
+inputs.forEach((input) => {
+  const formValidator = new FormValidator(validationOptions, input);
+  formValidator.enableValidation();
+});
+
+const formValidator = new FormValidator(validationOptions, profileInput);
+const card = new Card(initialCards, '#card-template');
   
 function openProfileForm() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  formValidator.toggleButtonState();
   openPopup(profilePopup);
-  const submitElement = profileForm.querySelector(validationOptions.submitSelector);
-  const inputs = Array.from(profileForm.querySelectorAll(validationOptions.inputSelector));
-  formValidator.toggleButtonState(inputs, submitElement, validationOptions.disabledButtonClass);
-  formValidator.removeErrors(profilePopup);
 }
 
-function openPopup(popup) {
+export default function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closeByEsc);
 }
@@ -121,7 +113,6 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 
 const profileAddPlaceButton = document.querySelector(".profile__add-button_action_add");
 const addPlacePopup = document.querySelector('.popup_type_place');
-const placeForm = document.forms["place-form"];
 const placeNameInput = addPlacePopup.querySelector('.form__input_el_heading');
 const placeLinkInput = addPlacePopup.querySelector('.form__input_el_subheading');
 
@@ -137,9 +128,12 @@ function handlePlaceFormSubmit(evt) {
   document.querySelector('.elements').prepend(cardElement);
   evt.target.reset();
   closePopup(addPlacePopup);
+
 }
 placeForm.addEventListener("submit", handlePlaceFormSubmit);
 
+
+  
 
 
   
