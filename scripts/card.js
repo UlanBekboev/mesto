@@ -18,16 +18,25 @@ export default class Card {
       return cardElement;
   }
 
+  _handleDeleteButton() {
+    this._element.remove();
+    this._element = null;
+  }
+
+  _handleLikeButton() {
+    this._likeButton.classList.toggle("element__like_active"); 
+  }
+
   _setEventListeners() {
     const deleteButton = this._element.querySelector(".element__trash");
-    const likeButton = this._element.querySelector(".element__like");
+    this._likeButton = this._element.querySelector(".element__like");
 
-    deleteButton.addEventListener("click", (e) => {
-      e.target.closest(".element").remove();
+    deleteButton.addEventListener("click", () => {
+      this._handleDeleteButton();
       });
     
-    likeButton.addEventListener("click", (e) => {
-      e.target.classList.toggle("element__like_active");
+    this._likeButton.addEventListener("click", () => {
+      this._handleLikeButton();
       }); 
   }
 
