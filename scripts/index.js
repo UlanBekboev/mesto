@@ -25,8 +25,8 @@ const initialCards = [
   },
 ];
 
-import FormValidator from './FormValidator.js';
-import Card from './Card.js';
+import FormValidator from './dfgjlkdg.js';
+import Card from './sdjfskdfd.js';
 
 const profileEditButton = document.querySelector('.profile__edit-button_action_open');
 const profileName = document.querySelector(".profile__title");
