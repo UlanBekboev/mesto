@@ -14,7 +14,7 @@ export default class Card {
       .content
       .querySelector('.element')
       .cloneNode(true);
-
+      
       return cardElement;
   }
 
@@ -27,9 +27,17 @@ export default class Card {
     this._likeButton.classList.toggle("element__like_active"); 
   }
 
+  _handleOpenPhoto() {
+    cardImagePopup.src = this._image;
+    cardImagePopup.alt = `Картина: местность ${this._title}`;
+    cardTitlePopup.textContent = this._title;
+    openPopup(photoPopup); 
+  }
+
   _setEventListeners() {
     const deleteButton = this._element.querySelector(".element__trash");
     this._likeButton = this._element.querySelector(".element__like");
+    const cardImage = this._element.querySelector('.element__image');
 
     deleteButton.addEventListener("click", () => {
       this._handleDeleteButton();
@@ -38,24 +46,21 @@ export default class Card {
     this._likeButton.addEventListener("click", () => {
       this._handleLikeButton();
       }); 
+
+      cardImage.addEventListener('click', () => {
+      this._handleOpenPhoto();
+    });
   }
 
-  renderCard(name, link) {
+  renderCard() {
     this._element = this._getTemplate();
-    this._setEventListeners();
     const cardImage = this._element.querySelector('.element__image');
     const cardTitle = this._element.querySelector('.element__title');
-    cardTitle.textContent = name;
-    cardImage.src = link;
-    cardImage.alt = `Картина: местность ${name}`;
+    cardTitle.textContent = this._title;
+    cardImage.src = this._image;
+    cardImage.alt = `Картина: местность ${this._title}`;
 
-    cardImage.addEventListener('click', () => {
-      cardImagePopup.src = cardImage.src;
-      cardImagePopup.alt = cardImage.alt;
-      cardTitlePopup.textContent = cardTitle.textContent;
-      openPopup(photoPopup); 
-    });
-  
+    this._setEventListeners();
     return this._element;
   };  
 }

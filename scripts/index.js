@@ -37,11 +37,9 @@ const jobInput = profilePopup.querySelector(".form__input_el_subheading");
 const profileForm = document.forms["profile-form"];
 const placeForm = document.forms["place-form"];
 const container = document.querySelector('.elements');
-const inputs = document.querySelectorAll('.form__input');
-const profileInput = profileForm.querySelector('.form__input');
+const forms = document.querySelectorAll('.form');
 
 const validationOptions = {
-  formSelector: '.form',
   submitSelector: '.form__submit-button',
   inputSelector: '.form__input',
   inputSectionSelector: '.form__set',
@@ -51,24 +49,27 @@ const validationOptions = {
   disabledButtonClass: 'form__submit-button_inactive',
 };
 
-initialCards.forEach((data) => {
+const createCards = (data) => {
   const card = new Card(data, '#card-template');
-  const cardElement = card.renderCard(data.name, data.link);
-  container.prepend(cardElement);
+  const cardElement = card.renderCard();
+
+  return cardElement;
+}
+
+initialCards.forEach((data) => {
+  container.append(createCards(data));
 });
 
-inputs.forEach((input) => {
-  const formValidator = new FormValidator(validationOptions, input);
+forms.forEach((form) => {
+  const formValidator = new FormValidator(validationOptions, form);
   formValidator.enableValidation();
 });
-
-const formValidator = new FormValidator(validationOptions, profileInput);
-const card = new Card(initialCards, '#card-template');
-  
+ 
 function openProfileForm() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  formValidator.toggleButtonState();
+  const submitButton = profilePopup.querySelector('.form__submit-button');
+  submitButton.classList.remove('form__submit-button_inactive');
   openPopup(profilePopup);
 }
 
@@ -122,10 +123,11 @@ profileAddPlaceButton.addEventListener("click", () => {
 
 function handlePlaceFormSubmit(evt) {
   evt.preventDefault();
-  const placeName = placeNameInput.value;
-  const placeLink = placeLinkInput.value;
-  const cardElement = card.renderCard(placeName, placeLink);
-  document.querySelector('.elements').prepend(cardElement);
+  const data = {
+    name: placeNameInput.value,
+    link: placeLinkInput.value,
+  };
+  container.prepend(createCards(data, '#card-template'));
   evt.target.reset();
   closePopup(addPlacePopup);
 
