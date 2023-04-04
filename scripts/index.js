@@ -38,6 +38,7 @@ const profileForm = document.forms["profile-form"];
 const placeForm = document.forms["place-form"];
 const container = document.querySelector('.elements');
 const forms = document.querySelectorAll('.form');
+const profileFormInput = profileForm.querySelectorAll('.form__input');
 
 const validationOptions = {
   submitSelector: '.form__submit-button',
@@ -68,8 +69,11 @@ forms.forEach((form) => {
 function openProfileForm() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  const submitButton = profilePopup.querySelector('.form__submit-button');
-  submitButton.classList.remove('form__submit-button_inactive');
+  const formValidator = new FormValidator(validationOptions, profileForm);
+  formValidator.enableButton();
+  profileFormInput.forEach((input) => {
+    formValidator.hideInputError(input);
+  });
   openPopup(profilePopup);
 }
 
