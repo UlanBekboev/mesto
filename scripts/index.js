@@ -59,17 +59,22 @@ initialCards.forEach((data) => {
   container.append(createCards(data));
 });
 
-const profileFormValidator = new FormValidator(validationOptions, profileForm);
-profileFormValidator.enableValidation();
+const validators = {};
 
-const placeFormValidator = new FormValidator(validationOptions, placeForm);
-placeFormValidator.enableValidation();
+const createFormValidator = (form) => {
+const validator = new FormValidator(validationOptions, form);
+validator.enableValidation();
+validators[form.getAttribute('name')] = validator;
+}
+
+createFormValidator(profileForm);
+createFormValidator(placeForm);
  
 function openProfileForm() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  profileFormValidator.enableButton();
-  profileFormValidator.hideAllInputError();
+  validators[profileForm.getAttribute('name')].enableButton();
+  validators[profileForm.getAttribute('name')].hideAllInputError();
   openPopup(profilePopup);
 }
 
