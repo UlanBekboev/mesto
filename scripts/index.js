@@ -37,8 +37,6 @@ const jobInput = profilePopup.querySelector(".form__input_el_subheading");
 const profileForm = document.forms["profile-form"];
 const placeForm = document.forms["place-form"];
 const container = document.querySelector('.elements');
-const forms = document.querySelectorAll('.form');
-const profileFormInput = profileForm.querySelectorAll('.form__input');
 
 const validationOptions = {
   submitSelector: '.form__submit-button',
@@ -61,19 +59,17 @@ initialCards.forEach((data) => {
   container.append(createCards(data));
 });
 
-forms.forEach((form) => {
-  const formValidator = new FormValidator(validationOptions, form);
-  formValidator.enableValidation();
-});
+const profileFormValidator = new FormValidator(validationOptions, profileForm);
+profileFormValidator.enableValidation();
+
+const placeFormValidator = new FormValidator(validationOptions, placeForm);
+placeFormValidator.enableValidation();
  
 function openProfileForm() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  const formValidator = new FormValidator(validationOptions, profileForm);
-  formValidator.enableButton();
-  profileFormInput.forEach((input) => {
-    formValidator.hideInputError(input);
-  });
+  profileFormValidator.enableButton();
+  profileFormValidator.hideAllInputError();
   openPopup(profilePopup);
 }
 
@@ -131,7 +127,7 @@ function handlePlaceFormSubmit(evt) {
     name: placeNameInput.value,
     link: placeLinkInput.value,
   };
-  container.prepend(createCards(data, '#card-template'));
+  container.prepend(createCards(data));
   evt.target.reset();
   closePopup(addPlacePopup);
 

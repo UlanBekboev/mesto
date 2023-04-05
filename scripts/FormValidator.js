@@ -20,16 +20,25 @@ export default class FormValidator  {
     inputElement.classList.add(this._formInputTypeError);
   };
   
-  hideInputError = (inputElement) => {
+  _hideInputError = (inputElement) => {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
     errorElement.textContent = '';
     errorElement.classList.remove(this._inputErrorClass);
     inputElement.classList.remove(this._formInputTypeError);
   };
   
+  hideAllInputError = () => {
+    this._inputs.forEach((input) => {
+      const errorElement = this._formElement.querySelector(`.${input.id}-error`);
+      errorElement.textContent = '';
+      errorElement.classList.remove(this._inputErrorClass);
+      input.classList.remove(this._formInputTypeError);
+    }); 
+  };
+
   _toggleInputState = (inputElement) => {
     if (inputElement.validity.valid) {
-      this.hideInputError(inputElement);
+      this._hideInputError(inputElement);
     } else {
       this._showInputError(inputElement);
     }
