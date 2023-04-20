@@ -1,3 +1,4 @@
+import '../pages/index.css';
 import {profileEditButton, cardListSelector, profileForm, placeForm, addPlacePopupSelector, photoPopupSelector, 
   profileEditPopupSelector, nameInput, jobInput, profileAddPlaceButton, validationOptions, initialCards} from "./utils/constants.js";
 import Section from "./components/Section.js"
@@ -92,4 +93,3 @@ const editProfilePopup = new PopupWithForm(profileEditPopupSelector, {handleForm
   profileAddPlaceButton.addEventListener('click', () => {
     addPlacePopup.openPopup();
   });
-
