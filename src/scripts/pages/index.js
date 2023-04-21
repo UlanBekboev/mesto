@@ -1,12 +1,12 @@
-import '../pages/index.css';
+import './index.css';
 import {profileEditButton, cardListSelector, profileForm, placeForm, addPlacePopupSelector, photoPopupSelector, 
-  profileEditPopupSelector, nameInput, jobInput, profileAddPlaceButton, validationOptions, initialCards} from "./utils/constants.js";
-import Section from "./components/Section.js"
-import FormValidator from "./components/FormValidator.js";
-import Card from "./components/Card.js";
-import PopupWithForm from "./components/PopupWithForm.js";
-import UserInfo from "./components/UserInfo.js";
-import PopupWithImage from "./components/PopupWithImage.js";
+  profileEditPopupSelector, nameInput, jobInput, profileAddPlaceButton, validationOptions, initialCards} from "../utils/constants.js";
+import Section from "../components/Section.js"
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 
 const userInfo = new UserInfo({
   nameSelector: '.profile__title',
