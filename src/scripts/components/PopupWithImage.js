@@ -12,6 +12,5 @@ export default class PopupWithImage extends Popup{
     this._popupName.textContent = data.name;
     this._popupImage.alt = `Картина: местность ${data.name}`;
     super.openPopup();
-    super.setEventListeners();
   }
 }

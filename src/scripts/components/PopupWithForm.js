@@ -6,6 +6,8 @@ export default class PopupWithForm extends Popup{
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector('.popup__form');
     this._inputList = this._form.querySelectorAll('.form__input');
+    this._nameInput = document.querySelector(".form__input_el_heading");
+    this._jobInput = document.querySelector(".form__input_el_subheading");
   }
 
   _getInputValues() {
@@ -16,13 +18,15 @@ export default class PopupWithForm extends Popup{
     return this._formValues;
   }
 
-  openPopup() {
-    super.openPopup();
+  setInputValues({name, job}) {
+    this._nameInput.value = name;
+    this._jobInput.value = job;
   }
 
   closePopup() {
     super.closePopup();
-  }
+    this._form.reset();
+  } 
 
   setEventListeners() {
     super.setEventListeners();
@@ -30,7 +34,6 @@ export default class PopupWithForm extends Popup{
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
       this.closePopup();
-      this._form.reset();
     });
   }
 }

@@ -26,11 +26,7 @@ export default class Card {
   }
 
   _setEventListeners() {
-    const deleteButton = this._element.querySelector(".element__trash");
-    this._likeButton = this._element.querySelector(".element__like");
-    const cardImage = this._element.querySelector('.element__image');
-
-    deleteButton.addEventListener("click", () => {
+    this._deleteButton.addEventListener("click", () => {
       this._handleDeleteButton();
       });
     
@@ -38,18 +34,20 @@ export default class Card {
       this._handleLikeButton();
       }); 
 
-      cardImage.addEventListener('click', () => {
+      this._cardImage.addEventListener('click', () => {
         this._handleCardClick(this._data);
     });
   }
 
   renderCard() {
     this._element = this._getTemplate();
-    const cardImage = this._element.querySelector('.element__image');
-    const cardTitle = this._element.querySelector('.element__title');
-    cardTitle.textContent = this._title;
-    cardImage.src = this._image;
-    cardImage.alt = `Картина: местность ${this._title}`;
+    this._cardImage = this._element.querySelector('.element__image');
+    this._cardTitle = this._element.querySelector('.element__title');
+    this._deleteButton = this._element.querySelector(".element__trash");
+    this._likeButton = this._element.querySelector(".element__like");
+    this._cardTitle.textContent = this._title;
+    this._cardImage.src = this._image;
+    this._cardImage.alt = `Картина: местность ${this._title}`;
 
     this._setEventListeners();
     return this._element;

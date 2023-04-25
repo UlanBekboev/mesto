@@ -5,12 +5,9 @@ const placeForm = document.forms["place-form"];
 const addPlacePopupSelector = '.popup_type_place';
 const photoPopupSelector = '.popup_type_photo';
 const profileEditPopupSelector = '.popup_type_edit';
-const profileEditPopup = document.querySelector(".popup_type_edit");
-const nameInput = profileEditPopup.querySelector(".form__input_el_heading");
-const jobInput = profileEditPopup.querySelector(".form__input_el_subheading");
 const profileAddPlaceButton = document.querySelector(".profile__add-button_action_add");
 
-const validationOptions = {
+const config = {
   submitSelector: '.form__submit-button',
   inputSelector: '.form__input',
   inputSectionSelector: '.form__set',
@@ -18,6 +15,7 @@ const validationOptions = {
   inputErrorClass: 'form__input-error_active',
   formInputTypeError: 'form__input_type_error',
   disabledButtonClass: 'form__submit-button_inactive',
+  formSelector: 'form',
 };
 
 const initialCards = [
@@ -55,9 +53,7 @@ export {
   addPlacePopupSelector,
   photoPopupSelector,
   profileEditPopupSelector,
-  nameInput,
-  jobInput,
   profileAddPlaceButton,
-  validationOptions,
+  config,
   initialCards
 };
