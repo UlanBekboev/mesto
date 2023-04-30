@@ -1,33 +1,35 @@
 {
-  "name": "webpack",
+  "name": "mesto",
   "version": "1.0.0",
-  "description": "Проект место простой, одностраничный сайт. В проект добавлена  форма для добавления новой карточки. Все это делается с помощью javascript. \r ### Обзор\r * header\r * section class=profile\r * section class=elements\r * section class=popup\r * footer\r * section id=popup-template",
+  "description": "Интерактивная веб-страница, позволяющая пользователю редактировать профиль и аватар, добавить новую карточку с фотографией и описанием места, удалить свои карточки, ставить и удалять на своих карточках и карточках других пользователей. Все изменения сохраняются на сервере Яндекс.Практикума.",
   "main": "index.js",
   "scripts": {
     "build": "rd /s /q dist && webpack --mode production",
-    "dev": "webpack serve --mode development",
+    "dev": "webpack serve",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "core-js": "^2.6.12",
+    "jquery": "^3.6.4"
+  },
   "devDependencies": {
-    "@babel/core": "^7.21.4",
-    "@babel/preset-env": "^7.21.4",
+    "@babel/core": "^7.21.5",
+    "@babel/preset-env": "^7.21.5",
     "autoprefixer": "^10.4.14",
     "babel-loader": "^9.1.2",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
-    "cssnano": "^6.0.0",
+    "cssnano": "^6.0.1",
     "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.1",
     "mini-css-extract-plugin": "^2.7.5",
-    "postcss-loader": "^7.2.4",
-    "webpack": "^5.80.0",
-    "webpack-cli": "^5.0.1",
+    "postcss-loader": "^7.3.0",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.81.0",
+    "webpack-cli": "^5.0.2",
     "webpack-dev-server": "^4.13.3"
-  },
-  "dependencies": {
-    "core-js": "^3.30.1"
   }
 }
