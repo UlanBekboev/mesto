@@ -15,7 +15,10 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img src="<%=require('./images/image.svg')%>" alt="Аватар" class="profile__avatar">
+      <div class="profile__image-container">
+        <img src="<%=require('./images/image.svg')%>" alt="Аватар" class="profile__avatar">
+        <button class="profile__avatar-btn"></button>
+      </div>
       <div class="profile__info">
         <h1 class="profile__title">Жак-Ив Кусто</h1>
         <p class="profile__text">Исследователь океана</p>
@@ -37,10 +40,10 @@
       <h2 class="popup__heading">Редактировать профиль</h2>
       <form class="popup__form form" action="#" name="profile-form" novalidate>
         <fieldset class="form__set">
-          <input type="text" name="username" id="name-input" placeholder="Имя" minlength="2" maxlength="40"
+          <input type="text" name="name" id="name-input" placeholder="Имя" minlength="2" maxlength="40"
             class="form__input  form__input_el_heading" required>
           <span class="name-input-error form__input-error"></span>
-          <input type="text" name="job" id="job-input" placeholder="О себе" minlength="2" maxlength="200" class="form__input
+          <input type="text" name="about" id="job-input" placeholder="О себе" minlength="2" maxlength="200" class="form__input
            form__input_el_subheading" required>
           <span class="job-input-error form__input-error"></span>
           <button type="submit" class="form__submit-button" aria-label="Кнопка Сохранить">Сохранить</button>
@@ -61,7 +64,7 @@
           <input type="url" name="link" id="link-input" placeholder="Ссылка на картинку" class="form__input form__input_el_subheading
            form__input_type_place" required>
           <span class="link-input-error form__input-error"></span>
-          <button type="submit" class="form__submit-button">Создать</button>
+          <button type="submit" class="form__submit-button" aria-label="Создать">Создать</button>
         </fieldset>
       </form>
     </div>
@@ -77,6 +80,31 @@
     </div>
   </div>
 
+  <div class="popup popup_type_avatar">
+    <div class="popup__container popup__container_type_avatar">
+      <button type="button" class="popup__close"></button>
+      <h2 class="popup__heading">Обновить аватар</h2>
+      <form class="popup__form form" action="#" name="avatar-form" novalidate>
+        <fieldset class="form__set">
+          <input type="text" name="avatar" id="avatar-input" placeholder="Аватар"
+            class="form__input  form__input_el_heading" required>
+          <span class="avatar-input-error form__input-error"></span> 
+          <button type="submit" class="form__submit-button" aria-label="Кнопка Сохранить">Сохранить</button>   
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+<div class="popup popup_type_confirm">
+  <div class="popup__container popup__container_type_confirm">
+    <button type="button" class="popup__close"></button>
+    <h2 class="popup__heading">Вы уверены?</h2>
+    <form class="popup__form form" action="#" name="avatar-form" novalidate>
+      <fieldset class="form__set">
+        <button type="submit" class="form__submit-button" aria-label="Кнопка Да">Да</button>   
+      </fieldset>
+    </form>
+</div>
 
   <template id="card-template">
     <div class="element">
@@ -84,7 +112,10 @@
       <img src="<%=require('./images/Trash.svg')%>" alt="корзина" class="element__trash">
       <div class="element__flex-row">
         <h2 class="element__title"></h2>
-        <button class="element__like" type="button"></button>
+        <div class="element__likes">
+          <button class="element__like" type="button"></button>
+          <span class="element__likes-num"></span>
+        </div>
       </div>
     </div>
   </template>

@@ -2,10 +2,15 @@ const profileEditButton = document.querySelector('.profile__edit-button_action_o
 const cardListSelector = '.elements';
 const profileForm = document.forms["profile-form"];
 const placeForm = document.forms["place-form"];
+const avatarForm = document.forms["avatar-form"];
 const addPlacePopupSelector = '.popup_type_place';
 const photoPopupSelector = '.popup_type_photo';
 const profileEditPopupSelector = '.popup_type_edit';
+const popupTypeConfirmSelector = '.popup_type_confirm';
 const profileAddPlaceButton = document.querySelector(".profile__add-button_action_add");
+const avatar = document.querySelector('.profile__avatar');
+const avatarButton = document.querySelector('.profile__avatar-btn');
+const avatarPopupSelector = '.popup_type_avatar';
 
 const config = {
   submitSelector: '.form__submit-button',
@@ -18,42 +23,19 @@ const config = {
   formSelector: 'form',
 };
 
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
-
 export { 
   profileEditButton, 
   cardListSelector,
   profileForm,
   placeForm,
+  avatarForm,
   addPlacePopupSelector,
   photoPopupSelector,
   profileEditPopupSelector,
   profileAddPlaceButton,
   config,
-  initialCards
+  avatar,
+  avatarButton,
+  avatarPopupSelector,
+  popupTypeConfirmSelector
 };
