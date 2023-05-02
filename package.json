@@ -4,7 +4,7 @@
   "description": "Интерактивная веб-страница, позволяющая пользователю редактировать профиль и аватар, добавить новую карточку с фотографией и описанием места, удалить свои карточки, ставить и удалять на своих карточках и карточках других пользователей. Все изменения сохраняются на сервере Яндекс.Практикума.",
   "main": "index.js",
   "scripts": {
-    "build": "rd /s /q dist && webpack --mode production",
+    "build": "webpack --mode production",
     "dev": "webpack serve",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
