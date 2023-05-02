@@ -1,15 +1,15 @@
-import './pages/index.css';
+import './index.css';
 import {profileEditButton, cardListSelector, profileForm, placeForm, avatarForm, addPlacePopupSelector, photoPopupSelector, 
   profileEditPopupSelector, profileAddPlaceButton, config, avatar, avatarButton,
-  avatarPopupSelector, popupTypeConfirmSelector} from "./scripts/utils/constants.js";
-import Section from "./scripts/components/Section.js";
-import FormValidator from "./scripts/components/FormValidator.js";
-import Card from "./scripts/components/Card.js";
-import PopupWithForm from "./scripts/components/PopupWithForm.js";
-import UserInfo from "./scripts/components/UserInfo.js";
-import PopupWithImage from "./scripts/components/PopupWithImage.js";
-import PopupWithConfirmation from "./scripts/components/PopupWithConfirmation.js";
-import Api from "./scripts/components/Api.js";
+  avatarPopupSelector, popupTypeConfirmSelector} from "../scripts/utils/constants.js";
+import Section from "../scripts/components/Section.js";
+import FormValidator from "../scripts/components/FormValidator.js";
+import Card from "../scripts/components/Card.js";
+import PopupWithForm from "../scripts/components/PopupWithForm.js";
+import UserInfo from "../scripts/components/UserInfo.js";
+import PopupWithImage from "../scripts/components/PopupWithImage.js";
+import PopupWithConfirmation from "../scripts/components/PopupWithConfirmation.js";
+import Api from "../scripts/components/Api.js";
 
 const userInfo = new UserInfo({
   nameSelector: '.profile__title',
