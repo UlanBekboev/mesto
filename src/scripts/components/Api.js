@@ -3,7 +3,7 @@ export default class Api {
     this._url = options.url;
     this._headers = options.headers;
   }
-
+  
   _response(res) {
     if (res.ok) {
       return res.json();

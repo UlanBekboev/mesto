@@ -9,14 +9,16 @@ export default class UserInfo {
     const userInfo = {
       name: this._name.textContent,
       about: this._job.textContent,
-      avatar: this._avatar.src
     }
     return userInfo;
   }
 
-  setUserInfo({name, about, avatar}) {
+  setUserInfo({name, about}) {
     this._name.textContent = name;
     this._job.textContent = about;
+  }
+
+  setAvatar({avatar}) {
     const img = new Image();
     img.onload = () => {
       this._avatar.src = avatar;
@@ -24,3 +26,4 @@ export default class UserInfo {
     img.src = avatar;
   }
 }
+

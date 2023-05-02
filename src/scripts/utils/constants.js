@@ -10,7 +10,6 @@ const popupTypeConfirmSelector = '.popup_type_confirm';
 const profileAddPlaceButton = document.querySelector(".profile__add-button_action_add");
 const avatar = document.querySelector('.profile__avatar');
 const avatarButton = document.querySelector('.profile__avatar-btn');
-const avatarPopupSelector = '.popup_type_avatar';
 
 const config = {
   submitSelector: '.form__submit-button',
@@ -36,6 +35,5 @@ export {
   config,
   avatar,
   avatarButton,
-  avatarPopupSelector,
   popupTypeConfirmSelector
 };

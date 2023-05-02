@@ -1,7 +1,6 @@
 import './index.css';
 import {profileEditButton, cardListSelector, profileForm, placeForm, avatarForm, addPlacePopupSelector, photoPopupSelector, 
-  profileEditPopupSelector, profileAddPlaceButton, config, avatar, avatarButton,
-  avatarPopupSelector, popupTypeConfirmSelector} from "../scripts/utils/constants.js";
+  profileEditPopupSelector, profileAddPlaceButton, config, avatarButton, popupTypeConfirmSelector} from "../scripts/utils/constants.js";
 import Section from "../scripts/components/Section.js";
 import FormValidator from "../scripts/components/FormValidator.js";
 import Card from "../scripts/components/Card.js";
@@ -10,6 +9,7 @@ import UserInfo from "../scripts/components/UserInfo.js";
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithConfirmation from "../scripts/components/PopupWithConfirmation.js";
 import Api from "../scripts/components/Api.js";
+const avatarPopupSelector = '.popup_type_avatar';
 
 const userInfo = new UserInfo({
   nameSelector: '.profile__title',
@@ -122,8 +122,8 @@ const editProfilePopup = new PopupWithForm(profileEditPopupSelector, {handleForm
     api.editUserInfo(dataForm)
     .then((dataForm) => {
       userInfo.setUserInfo(dataForm);
-      editProfilePopup.closePopup();
     })
+    .then(() => editProfilePopup.closePopup())
     .catch((err) => {
       console.log(`Ошибка: ${err}`);
     })
@@ -147,8 +147,8 @@ const addPlacePopup = new PopupWithForm(addPlacePopupSelector, {handleFormSubmit
     .then((data) => {
       const card = createCards(data);
       cards.prependItem(card);
-      addPlacePopup.closePopup();
     })
+    .then(() => addPlacePopup.closePopup())
     .catch((err) => {
       console.log(`Ошибка: ${err}`);
     })
@@ -170,9 +170,9 @@ profileAddPlaceButton.addEventListener('click', () => {
       editAvatarPopup.renderLoading(true);
       api.editAvatar(data)
       .then((data) => {
-        avatar.src = data.avatar;
-        editAvatarPopup.closePopup();
+        userInfo.setAvatar(data);
       })
+      .then(() => editAvatarPopup.closePopup())
       .catch((err) => {
         console.log(`Ошибка: ${err}`);
       })
